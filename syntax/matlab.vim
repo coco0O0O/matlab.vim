@@ -15,8 +15,8 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn keyword matlabStatement		return function
-syn keyword matlabConditional		switch case else elseif end if otherwise break continue
+syn keyword matlabStatement		return function contained
+syn keyword matlabConditional		switch case else elseif end if otherwise break continue contained
 syn keyword matlabRepeat		do for while parfor
 syn keyword matlabStorageClass		classdef methods properties events persistent global
 syn keyword matlabExceptions		try catch rethrow throw
@@ -306,7 +306,8 @@ syn keyword matlabFunc hdf hdf5 hdf5info hdf5read hdf5write hdfinfo hdfread hdft
 "Band-Interleaved Data
 syn keyword matlabFunc multibandread multibandwrite
 
-
+syn region matlabConditionBlock start="\<if\>\|\<try\>\|\<switch\>" end="^\s*\<end\>" contains=ALLBUT,matlabExceptions fold keepend extend
+syn region matlabFuncBlock start="^\s*\<function\>" end="^\s*\<end\>" contains=ALLBUT,matlabConditional,matlabExceptions fold keepend extend
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
