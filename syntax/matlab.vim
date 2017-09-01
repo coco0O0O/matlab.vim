@@ -308,7 +308,8 @@ syn keyword matlabFunc hdf hdf5 hdf5info hdf5read hdf5write hdfinfo hdfread hdft
 syn keyword matlabFunc multibandread multibandwrite
 
 syn region matlabConditionBlock matchgroup=matlabConditional start="\<if\>\|\<try\>\|\<switch\>\|\<for\>" end="^\s*\<end\>" contains=ALLBUT,matlabConditional,matlabExceptions,matlabStatement,matlabRepeat fold keepend extend
-syn region matlabFuncBlock matchgroup=matlabConditional start="^\s*\<function\>" end="^\s*\<end\>" contains=ALLBUT,matlabConditional,matlabExceptions,matlabStatement,matlabRepeat fold keepend extend
+syn region matlabFuncBlock matchgroup=matlabConditional start="^\s*\<function\>\|^\s*\<properties\>\|^\s*\<events\>\|^\s*\<methods\>" end="^\s*\<end\>" contains=ALLBUT,matlabConditional,matlabExceptions,matlabStatement,matlabRepeat fold keepend extend
+syn region matlabClassDefBlock matchgroup=matlabConditional start="^\s*\<classdef\>" end="^\s*\<end\>" keepend extend
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
